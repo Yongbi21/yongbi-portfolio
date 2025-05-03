@@ -41,9 +41,9 @@ export default function Home() {
         <Card className="bg-[#1a1a1a] text-white border-none ">
           <CardContent className="flex flex-col gap-4 my-2 mx-2">
           <h1 className="text-2xl font-light text-white">
-            Hello there! I&#39;m <span className="font-semibold">Alvin John Romblon</span>
+            <span>Hello there! I&#39;m </span>
+            <span className="font-semibold">Alvin John Romblon</span>
            </h1>
-
         <p className="text-2xl text-white font-light">
           I turn ideas into refined, usable websites.
         </p>
