@@ -25,7 +25,7 @@ export default function Home() {
       buttonLink: "/contact",
     },
     {
-      title: "The Journey",
+      title: "Project Flow",
       titleClassName: "flex justify-center items-center font-semibold text-2xl mb-4",
 
     },
@@ -83,17 +83,17 @@ export default function Home() {
               {index === 1 && (
                   // Uses react fragment so that I can put many cards in here
                   <>
-                  <Card className="bg-[#2a2a2a] border border-gray-700">
+                  <Card className="bg-[#2a2a2a] border border-gray-700 h-50">
                     <CardContent>
                         <p className="text-white">This is a nested card!</p>
                     </CardContent>
                   </Card>
-                  <Card className="bg-[#2a2a2a] border border-gray-700">
+                  <Card className="bg-[#2a2a2a] border border-gray-700 h-50">
                     <CardContent>
                       <p className="text-white">This is the second nested card!</p>
                     </CardContent>
                   </Card>
-                  <Card className="bg-[#2a2a2a] border border-gray-700">
+                  <Card className="bg-[#2a2a2a] border border-gray-700 h-50">
                     <CardContent>
                       <p className="text-white">This is the second nested card!</p>
                     </CardContent>
