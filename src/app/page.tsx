@@ -27,27 +27,6 @@ export default function Home() {
     {
       title: "The Journey",
       titleClassName: "flex justify-center items-center font-semibold text-2xl mb-4",
-      description: "I turn ideas into refined, usable websites.",
-      descriptionClassName: "",
-      extraText: "I'm a front-end developer crafting user-focused interfaces that simplify daily tasks through thoughtful, intentional design.",
-      extraTextClassName: "",
-      buttonLabel: "Get in touch",
-      buttonLink: "/contact",
-      buttonClassName: "",
-
-
-    },
-    {
-      title: "The Journey",
-      titleClassName: "flex justify-center items-center font-semibold text-2xl mb-4",
-      description: "I turn ideas into refined, usable websites.",
-      descriptionClassName: "",
-      extraText: "I'm a front-end developer crafting user-focused interfaces that simplify daily tasks through thoughtful, intentional design.",
-      extraTextClassName: "",
-      buttonLabel: "Get in touch",
-      buttonLink: "/contact",
-      buttonClassName: "",
-
 
     },
   ];
@@ -101,11 +80,28 @@ export default function Home() {
                 extraTextClassName={card.extraTextClassName}
                 buttonClassName={card.buttonClassName}
             >
-              <Card className="bg-[#2a2a2a] border border-gray-700 p-4">
-                <CardContent>
-                  <p className="text-white">This is a nested card!</p>
-                </CardContent>
-              </Card>
+              {index === 1 && (
+                  // Uses react fragment so that I can put many cards in here
+                  <>
+                  <Card className="bg-[#2a2a2a] border border-gray-700">
+                    <CardContent>
+                        <p className="text-white">This is a nested card!</p>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-[#2a2a2a] border border-gray-700">
+                    <CardContent>
+                      <p className="text-white">This is the second nested card!</p>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-[#2a2a2a] border border-gray-700">
+                    <CardContent>
+                      <p className="text-white">This is the second nested card!</p>
+                    </CardContent>
+                  </Card>
+
+                  </>
+              )}
+
             </DynamicCard>
         ))}
 

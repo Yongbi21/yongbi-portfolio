@@ -38,7 +38,7 @@ const DynamicCard: React.FC<DynamicCardProps> = ({
 
 }) => {
     return (
-        <Card className="bg-[#1a1a1a] text-white border-none ">
+        <Card className="bg-[#1a1a1a] text-white border-none w-4xl ">
             <CardContent className="flex flex-col gap-4 my-2 mx-2">
                 <h1 className={`text-2xl font-light text-white ${titleClassName}`}>
                         <span>{title}</span>
