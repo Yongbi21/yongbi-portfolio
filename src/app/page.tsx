@@ -7,20 +7,28 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
+import { Header }from "@/app/header";
+
 
 export default function Home() {
+  const navLinks = [
+    { label: "Home", href: "/", image: "", alt: "Home" },
+    { label: "Projects", href: "/", image: "", alt: "Projects" },
+    { label: "About", href: "/about", image: "", alt: "About" },
+    { label: "Contact", href: "/contact", image: "", alt: "Contact" },
+    { label: "", href: "https://github.com/Yongbi21", image: "/github-logo-dark.png", alt: "Github" },
+    { label: "", href: "", image: "/dark-mode.png", alt: "dark-mode" },
+
+  ];
   return (
 
     <div className="grid grid-rows-[20px_1fr_20px] min-h-screen p-8 pb-20 gap-4 sm:p-20 bg-[#000]
     font-[family-name:var(--font-poppins)] relative flex-col justify-center">
 
-        <header>
+      <Header links={navLinks} />
 
-        {/*  make a component for header*/}
 
-        </header>
-
-      <main className="flex flex-col sm:items-start  sm:mt-4 gap-8">
+      <main className="flex flex-col sm:items-start  sm:mt-19 gap-8">
         <section className="flex gap-[18px] flex-wrap item-start text-white">
           <a
               className="flex items-center gap-2  font-semibold text-2xl"
@@ -37,7 +45,7 @@ export default function Home() {
             Develop →
           </a>
           <a
-              className="flex items-center gap-2  font-semibold text-2xl"
+              className="flex items-center gap-2  font-semibold text-2xl text-mint"
               target="_blank"
               rel="noopener noreferrer"
           >
