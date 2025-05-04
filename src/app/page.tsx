@@ -1,13 +1,7 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
 
 import { Header }from "@/app/header";
+import DynamicCard from "@/components/ui/dynamic-card";
+import {Card, CardContent} from "@/components/ui/card";
 
 
 export default function Home() {
@@ -20,15 +14,56 @@ export default function Home() {
     { label: "", href: "", image: "/dark-mode.png", alt: "dark-mode" },
 
   ];
+  const dynamicCardData = [
+    {
+      title: "Hello there! I'm Alvin John Romblon",
+      description:
+          "I turn ideas into refined, usable websites.",
+      extraText:
+          "I'm a front-end developer crafting user-focused interfaces that simplify daily tasks through thoughtful, intentional design.",
+      buttonLabel: "Get in touch",
+      buttonLink: "/contact",
+    },
+    {
+      title: "The Journey",
+      titleClassName: "flex justify-center items-center font-semibold text-2xl mb-4",
+      description: "I turn ideas into refined, usable websites.",
+      descriptionClassName: "",
+      extraText: "I'm a front-end developer crafting user-focused interfaces that simplify daily tasks through thoughtful, intentional design.",
+      extraTextClassName: "",
+      buttonLabel: "Get in touch",
+      buttonLink: "/contact",
+      buttonClassName: "",
+
+
+    },
+    {
+      title: "The Journey",
+      titleClassName: "flex justify-center items-center font-semibold text-2xl mb-4",
+      description: "I turn ideas into refined, usable websites.",
+      descriptionClassName: "",
+      extraText: "I'm a front-end developer crafting user-focused interfaces that simplify daily tasks through thoughtful, intentional design.",
+      extraTextClassName: "",
+      buttonLabel: "Get in touch",
+      buttonLink: "/contact",
+      buttonClassName: "",
+
+
+    },
+  ];
+
+
   return (
 
-    <div className="grid grid-rows-[20px_1fr_20px] min-h-screen p-8 pb-20 gap-4 sm:p-20 bg-[#000]
+
+
+    <div className=" grid min-h-screen gap-4 overflow-auto sm:p-20 bg-[#000]
     font-[family-name:var(--font-poppins)] relative flex-col justify-center">
 
       <Header links={navLinks} />
 
 
-      <main className="flex flex-col sm:items-start  sm:mt-19 gap-8">
+      <main className="flex flex-col sm:items-start  sm:mt-18 gap-8">
         <section className="flex gap-[18px] flex-wrap item-start text-white">
           <a
               className="flex items-center gap-2  font-semibold text-2xl"
@@ -53,33 +88,27 @@ export default function Home() {
           </a>
         </section>
 
-        <Card className="bg-[#1a1a1a] text-white border-none ">
-          <CardContent className="flex flex-col gap-4 my-2 mx-2">
-          <h1 className="text-2xl font-light text-white">
-            <span>Hello there! I&#39;m </span>
-            <span className="font-semibold">Alvin John Romblon</span>
-           </h1>
-        <p className="text-2xl text-white font-light">
-          I turn ideas into refined, usable websites.
-        </p>
+        {dynamicCardData.map((card, index) => (
+            <DynamicCard
+                key={index}
+                title={card.title}
+                description={card.description}
+                extraText={card.extraText}
+                buttonLabel={card.buttonLabel}
+                buttonLink={card.buttonLink}
+                titleClassName={card.titleClassName}
+                descriptionClassName={card.descriptionClassName}
+                extraTextClassName={card.extraTextClassName}
+                buttonClassName={card.buttonClassName}
+            >
+              <Card className="bg-[#2a2a2a] border border-gray-700 p-4">
+                <CardContent>
+                  <p className="text-white">This is a nested card!</p>
+                </CardContent>
+              </Card>
+            </DynamicCard>
+        ))}
 
-        <p className="text-md text-white font-light max-w-xl">
-          I&#39;m a front-end developer crafting user-focused interfaces that simplify daily tasks through thoughtful, intentional design.
-        </p>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row mt-3">
-          <a
-              className="rounded-md border border-transparent transition-colors flex items-center justify-center
-                 bg-[#2AC6A4] text-white gap-2 font-medium text-md sm:text-base h-10 sm:h-11 px-4 sm:px-5 sm:w-auto"
-              href=""
-              target="_blank"
-              rel="noopener noreferrer"
-          >
-            Get in touch
-          </a>
-        </div>
-            </CardContent>
-        </Card>
 
       </main>
 
