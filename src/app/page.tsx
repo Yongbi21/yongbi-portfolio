@@ -13,31 +13,38 @@ export default function Home() {
 
     <div className="grid grid-rows-[20px_1fr_20px] min-h-screen p-8 pb-20 gap-4 sm:p-20 bg-[#000]
     font-[family-name:var(--font-poppins)] relative flex-col justify-center">
-      <header className="row-start-1 flex gap-[18px] flex-wrap item-start text-white">
-        <a
-            className="flex items-center gap-2  font-semibold text-2xl"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-          Plan →
-        </a>
-        <a
-            className="flex items-center gap-2  font-semibold text-2xl"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-          Develop →
-        </a>
-        <a
-            className="flex items-center gap-2  font-semibold text-2xl"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-          Launch
-        </a>
 
-      </header>
-      <main className="flex row-start-2 sm:items-start mt-10 justify-center">
+        <header>
+
+        {/*  make a component for header*/}
+
+        </header>
+
+      <main className="flex flex-col sm:items-start  sm:mt-4 gap-8">
+        <section className="flex gap-[18px] flex-wrap item-start text-white">
+          <a
+              className="flex items-center gap-2  font-semibold text-2xl"
+              target="_blank"
+              rel="noopener noreferrer"
+          >
+            Plan →
+          </a>
+          <a
+              className="flex items-center gap-2  font-semibold text-2xl"
+              target="_blank"
+              rel="noopener noreferrer"
+          >
+            Develop →
+          </a>
+          <a
+              className="flex items-center gap-2  font-semibold text-2xl"
+              target="_blank"
+              rel="noopener noreferrer"
+          >
+            Launch
+          </a>
+        </section>
+
         <Card className="bg-[#1a1a1a] text-white border-none ">
           <CardContent className="flex flex-col gap-4 my-2 mx-2">
           <h1 className="text-2xl font-light text-white">
