@@ -1,10 +1,16 @@
 "use client";
-import { Header } from "@/app/header";
-import DynamicCard from "@/components/ui/dynamic-card";
-import { Card, CardContent } from "@/components/ui/card";
-import React, { useState } from "react";
 
+// Required to allow client-side interactivity in Next.js App Router
+// This enables useState, useEffect, and other client hooks
+
+import { Header } from "@/app/header"; // Custom Header component
+import DynamicCard from "@/components/ui/dynamic-card"; // Reusable dynamic content card component
+import { Card, CardContent } from "@/components/ui/card"; // Styled card components
+import React, { useState } from "react"; // Import React and the useState hook for managing component state
+
+// Home is the main page component for this route
 export default function Home() {
+  // Navigation links to be passed to the Header component
   const navLinks = [
     { label: "Home", href: "/", image: "", alt: "Home" },
     { label: "Projects", href: "/", image: "", alt: "Projects" },
@@ -14,6 +20,7 @@ export default function Home() {
     { label: "", href: "", image: "/dark-mode.png", alt: "dark-mode" },
   ];
 
+  // Data used by multiple DynamicCard components
   const dynamicCardData = [
     {
       title: "Hello there! I'm Alvin John Romblon",
@@ -32,20 +39,22 @@ export default function Home() {
     },
   ];
 
+  // State to control how many projects are visible
   const [visibleProjects, setVisibleProjects] = useState(4);
   const showMoreProjects = () => setVisibleProjects(prev => prev + 4);
 
+  // This function renders cards showing the process steps
   const renderFlowCards = () => (
       <>
-        {["Plan", "Develop", "Launch"].map((step, idx) => (
-            <Card key={step} className="bg-[#2a2a2a] border border-gray-700 h-50">
+        {['Plan', 'Develop', 'Launch'].map((step, idx) => (
+            <Card key={step} className="bg-[#1a1a1a] border border-gray-700 h-50">
               <CardContent className="gap-5 py-2 flex flex-col">
                 <p className="text-gray-light text-2xl font-medium">0{idx + 1}</p>
                 <p className="text-white text-2xl ">{step}</p>
                 <p className="text-gray-light font-light text-xl">
-                  {step === "Plan" && "Outlining the goals and strategy for your project."}
-                  {step === "Develop" && "Develop your project using modern tools and technologies"}
-                  {step === "Launch" && "Launching your project to the world."}
+                  {step === 'Plan' && 'Outlining the goals and strategy for your project.'}
+                  {step === 'Develop' && 'Develop your project using modern tools and technologies'}
+                  {step === 'Launch' && 'Launching your project to the world.'}
                 </p>
               </CardContent>
             </Card>
@@ -53,7 +62,9 @@ export default function Home() {
       </>
   );
 
+  // Static array of project items to render in the UI
   const projectItems = [
+    // Sample project objects; you can replace or fetch these dynamically
     {
       label: "School Project",
       title: "WMSU Collection System",
@@ -70,6 +81,7 @@ export default function Home() {
       link: "https://github.com/Yongbi21/Pathfide",
       image: "/pathfide.png",
     },
+    // Repeated items for demo purposes
     {
       label: "Freelance Project",
       title: "Mindpath Web",
@@ -104,6 +116,7 @@ export default function Home() {
     },
   ];
 
+  // Function to display projects dynamically based on state
   const renderProjects = () => (
       <>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -124,7 +137,8 @@ export default function Home() {
                         className="rounded-md border border-transparent transition-colors flex items-center justify-center bg-[#2AC6A4] text-white gap-2 font-medium text-base sm:text-base h-10 sm:h-10 px-4 sm:px-5 sm:w-auto"
                         href={item.link}
                         target="_blank"
-                        rel="noopener noreferrer">
+                        rel="noopener noreferrer"
+                    >
                       <img src="/github-logo-dark.png" alt="GitHub" className="h-5 w-5" />
                       Github
                     </a>
@@ -133,11 +147,13 @@ export default function Home() {
               </Card>
           ))}
         </div>
+        {/* Show More Button - visible only when there are more projects */}
         {visibleProjects < projectItems.length && (
             <div className="flex justify-center mt-4">
               <button
                   onClick={showMoreProjects}
-                  className="px-4 py-2 bg-[#2AC6A4] text-white rounded-sm text-sm font-medium">
+                  className="px-4 py-2 bg-[#2AC6A4] text-white rounded-sm text-sm font-medium"
+              >
                 Show More
               </button>
             </div>
@@ -145,17 +161,25 @@ export default function Home() {
       </>
   );
 
+  // Component UI begins
   return (
       <div className="grid min-h-screen gap-4 overflow-auto sm:p-20 bg-[#000] font-[family-name:var(--font-poppins)] relative flex-col justify-center">
+        {/* Reusable header component receives navLinks */}
         <Header links={navLinks} />
         <main className="flex flex-col sm:items-start sm:mt-18 gap-8">
+          {/* Step-by-step horizontal nav section */}
           <section className="flex gap-[18px] flex-wrap item-start text-white">
-            {["Plan", "Develop", "Launch"].map((step, i) => (
-                <a key={i} className={`flex items-center gap-2 font-semibold text-2xl ${step === "Launch" ? "text-mint" : ""}`}>
-                  {step}{step !== "Launch" ? " →" : ""}
+            {['Plan', 'Develop', 'Launch'].map((step, i) => (
+                <a
+                    key={i}
+                    className={`flex items-center gap-2 font-semibold text-2xl ${step === 'Launch' ? 'text-mint' : ''}`}
+                >
+                  {step}{step !== 'Launch' ? ' →' : ''}
                 </a>
             ))}
           </section>
+
+          {/* Render multiple dynamic cards based on index */}
           {dynamicCardData.map((card, index) => (
               <DynamicCard
                   key={index}
@@ -164,7 +188,9 @@ export default function Home() {
                   extraText={card.extraText}
                   buttonLabel={card.buttonLabel}
                   buttonLink={card.buttonLink}
-                  titleClassName={card.titleClassName}>
+                  titleClassName={card.titleClassName}
+              >
+                {/* Render flow or project content in specific index */}
                 {index === 1 && renderFlowCards()}
                 {index === 2 && renderProjects()}
               </DynamicCard>
