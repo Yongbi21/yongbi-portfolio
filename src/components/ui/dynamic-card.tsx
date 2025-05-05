@@ -2,11 +2,11 @@ import React from "react";
 import {
     Card,
     CardContent,
-    CardTitle,
-    CardHeader,
-    CardDescription,
-    CardFooter,
-    CardAction
+    // CardTitle,
+    // CardHeader,
+    // CardDescription,
+    // CardFooter,
+    // CardAction
 } from "@/components/ui/card";
 
 
@@ -40,9 +40,22 @@ const DynamicCard: React.FC<DynamicCardProps> = ({
     return (
         <Card className="bg-[#1a1a1a] text-white border-none w-4xl ">
             <CardContent className="flex flex-col gap-4 my-2 mx-2">
+
+                {/*// splits the title into two parts, the first part is the text before "Alvin John Romblon"*/}
+                {/*and the second part is the text after "Alvin John Romblon and changes the inline font
+                PS: it only appears if there is the name" //*/}
                 <h1 className={`text-2xl font-light text-white ${titleClassName}`}>
-                        <span>{title}</span>
+                    {title.includes("Alvin John Romblon") ? (
+                        <>
+                            {title.split("Alvin John Romblon")[0]}
+                            <span className="font-semibold">Alvin John Romblon</span>
+                            {title.split("Alvin John Romblon")[1]}
+                        </>
+                    ) : (
+                        title
+                    )}
                 </h1>
+
 
                 {description && (
                     <p className={`text-2xl text-white font-light ${descriptionClassName}`}>
