@@ -116,10 +116,11 @@ export default function Home() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <Card className="bg-[#2a2a2a] border border-gray-700">
                       <CardContent className="gap-3 flex flex-col">
-                        <p className="text-gray-light text-sm ">Freelance Project</p>
-                        <img src="/pathfide.png" alt="Pathfide" className="rounded-md w-full h-40 object-cover" />
-                        <p className="text-white text-2xl font-semibold mb-3">Mindpath</p>
+                        <p className="text-gray-light text-sm ">School Project</p>
 
+                        <img src="/pathfide.png" alt="Pathfide" className="rounded-md w-full h-40 object-cover" />
+
+                        <p className="text-white text-2xl font-semibold mb-3">WMSU Collection System</p>
                         <p className="text-white text-base ">An app that supports your mental wellness journey with mood tracking, therapist connections,
                           and self-care tools—available in multiple languages for personalized care.</p>
                         <div className="flex gap-1 mt-3 items-center flex-col sm:flex-row">
@@ -169,8 +170,10 @@ export default function Home() {
                     <Card className="bg-[#2a2a2a] border border-gray-700">
                       <CardContent className="gap-3 flex flex-col">
                         <p className="text-gray-light text-sm ">Freelance Project</p>
+
                         <img src="/pathfide.png" alt="Pathfide" className="rounded-md w-full h-40 object-cover" />
-                        <p className="text-white text-2xl font-semibold mb-3">Mindpath</p>
+
+                        <p className="text-white text-2xl font-semibold mb-3">Mindpath Web</p>
                         <p className="text-white text-base ">An app that supports your mental wellness journey with mood tracking, therapist connections,
                           and self-care tools—available in multiple languages for personalized care.</p>
                         <div className="flex gap-1 mt-3 items-center flex-col sm:flex-row">
@@ -195,8 +198,10 @@ export default function Home() {
                     <Card className="bg-[#2a2a2a] border border-gray-700">
                       <CardContent className="gap-3 flex flex-col">
                           <p className="text-gray-light text-sm ">Freelance Project</p>
+
                         <img src="/pathfide.png" alt="Pathfide" className="rounded-md w-full h-40 object-cover" />
-                        <p className="text-white text-2xl font-semibold mb-3">Mindpath</p>
+
+                        <p className="text-white text-2xl font-semibold mb-3">ViaJe</p>
                           <p className="text-white text-base ">An app that supports your mental wellness journey with mood tracking, therapist connections,
                           and self-care tools—available in multiple languages for personalized care.</p>
                         <div className="flex gap-1 mt-3 items-center flex-col sm:flex-row">
