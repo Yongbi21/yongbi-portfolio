@@ -81,7 +81,7 @@ export default function Home() {
                 <p className="text-gray-light font-light text-xl">
                   {step === 'Plan' && 'Outlining the goals and strategy for your project.'}
                   {step === 'Develop' && 'Develop your project using modern tools and technologies'}
-                  {step === 'Launch' && 'Launching your project to the world.'}
+                  {step === 'Launch' && 'Introducing your project to a global audience.'}
                 </p>
               </CardContent>
             </Card>
