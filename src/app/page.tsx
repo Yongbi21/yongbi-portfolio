@@ -68,7 +68,8 @@ export default function Home() {
     {
       label: "School Project",
       title: "WMSU Collection System",
-      description: "A school fee management system that automates collecting fees and generating fee receipts...",
+      description: "A school fee management system that automates collecting fees and generating fee receipts.\n" +
+          "It ensures correctness, eliminates duplicate and minimizes errors when entering entries into student accounts.",
       tech: ["Kotlin", "Firebase", "PHP"],
       link: "https://github.com/Yongbi21/Pathfide",
       image: "/pathfide.png",
@@ -76,7 +77,8 @@ export default function Home() {
     {
       label: "Freelance Project",
       title: "Mindpath",
-      description: "An app that supports your mental wellness journey...",
+      description: "An app that supports your mental wellness journey with mood tracking, therapist connections, in app chat and video call and" +
+          " self-care tools—available in multiple languages for personalized care.",
       tech: ["Kotlin", "Firebase", "PHP"],
       link: "https://github.com/Yongbi21/Pathfide",
       image: "/pathfide.png",
@@ -85,7 +87,17 @@ export default function Home() {
     {
       label: "Freelance Project",
       title: "Mindpath Web",
-      description: "A web app that enables users to book therapy sessions...",
+      description: "A web app that enables users to book therapy sessions and lets admins manage appointments, therapists,\n" +
+          "and interviews—all in one streamlined platform using the mindpath mobile version.",
+      tech: ["Kotlin", "Firebase", "PHP"],
+      link: "https://github.com/Yongbi21/Pathfide",
+      image: "/pathfide.png",
+    },
+    {
+      label: "Freelance Project",
+      title: "ViaJe",
+      description: "ViaJe is a Zamboanga City ride-hailing app (frontend only) that connects passengers with drivers. " +
+          "Passengers can book and track rides with fare estimates, while drivers view earnings and trip stats. The UI includes ride history, payments, and support features for streamlined local transport.",
       tech: ["Kotlin", "Firebase", "PHP"],
       link: "https://github.com/Yongbi21/Pathfide",
       image: "/pathfide.png",
@@ -94,15 +106,7 @@ export default function Home() {
       label: "Freelance Project",
       title: "ViaJe",
       description: "An app that supports your mental wellness journey...",
-      tech: ["Kotlin", "Firebase", "PHP"],
-      link: "https://github.com/Yongbi21/Pathfide",
-      image: "/pathfide.png",
-    },
-    {
-      label: "Freelance Project",
-      title: "ViaJe",
-      description: "An app that supports your mental wellness journey...",
-      tech: ["Kotlin", "Firebase", "PHP"],
+      tech: ["Kotlin"],
       link: "https://github.com/Yongbi21/Pathfide",
       image: "/pathfide.png",
     },
