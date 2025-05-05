@@ -1,16 +1,21 @@
-"use client";
+"use client"; // This directive marks the file as client-side code, enabling React hooks and browser APIs
 
-// Required to allow client-side interactivity in Next.js App Router
-// This enables useState, useEffect, and other client hooks
-
-import { Header } from "@/app/header"; // Custom Header component
-import DynamicCard from "@/components/ui/dynamic-card"; // Reusable dynamic content card component
-import { Card, CardContent } from "@/components/ui/card"; // Styled card components
-import React, { useState } from "react"; // Import React and the useState hook for managing component state
+// Import Section:
+// - Layout components first (Header)
+// - UI components second (DynamicCard, Card)
+// - React core functionality last
+// The @/ notation is a path alias in Next.js pointing to the project root for cleaner imports
+import { Header } from "@/app/header"; // Custom Header component for site navigation
+import DynamicCard from "@/components/ui/dynamic-card"; // Reusable component for displaying cards with dynamic content
+import { Card, CardContent } from "@/components/ui/card"; // UI components for consistent card styling
+import React, { useState } from "react"; // Import React and useState hook for managing component state
 
 // Home is the main page component for this route
+// Using a functional component pattern which is the modern approach in React
 export default function Home() {
-  // Navigation links to be passed to the Header component
+  // Navigation links array - Organizing navigation data at the top of the component
+  // Using an array of objects provides a consistent data structure and makes it easy to map through
+  // This approach separates data from presentation logic
   const navLinks = [
     { label: "Home", href: "/", image: "", alt: "Home" },
     { label: "Projects", href: "/", image: "", alt: "Projects" },
@@ -20,7 +25,9 @@ export default function Home() {
     { label: "", href: "", image: "/dark-mode.png", alt: "dark-mode" },
   ];
 
-  // Data used by multiple DynamicCard components
+  // Data for the DynamicCard components - separating content from structure
+  // This approach makes the component more maintainable - content changes don't require modifying component logic
+  // Each object has a consistent structure for predictable rendering
   const dynamicCardData = [
     {
       title: "Hello there! I'm Alvin John Romblon",
@@ -39,18 +46,38 @@ export default function Home() {
     },
   ];
 
-  // State to control how many projects are visible
-  const [visibleProjects, setVisibleProjects] = useState(4);
-  const showMoreProjects = () => setVisibleProjects(prev => prev + 4);
+  // State management for project visibility
+  // Using React's useState hook to create component-level state variables
+  // Initial state shows only 4 projects to avoid overwhelming users with content
+  const [visibleProjects, setVisibleProjects] = useState(4); // Controls how many projects are displayed
+  const [allVisible, setAllVisible] = useState(false); // Tracks whether all projects are currently shown
 
-  // This function renders cards showing the process steps
+  // Toggle function for showing more/fewer projects
+  // This function updates both state variables to maintain consistency
+  // Provides a smooth user experience by toggling between states
+  const showMoreProjects = () => {
+    if (allVisible) {
+      setVisibleProjects(4);       // Collapse back to initial number
+      setAllVisible(false);
+    } else {
+      setVisibleProjects(projectItems.length); // Show all
+      setAllVisible(true);
+    }
+  };
+
+  // Function to render flow cards
+  // Encapsulating rendering logic in a function makes the JSX cleaner and more maintainable
+  // Using array mapping to generate multiple similar components from data
+  // Conditional rendering inside the mapped function customizes content based on the step
   const renderFlowCards = () => (
       <>
+        {/* Map through each step to create a card - avoiding repetitive code */}
         {['Plan', 'Develop', 'Launch'].map((step, idx) => (
             <Card key={step} className="bg-[#1a1a1a] border border-gray-700 h-50">
               <CardContent className="gap-5 py-2 flex flex-col">
                 <p className="text-gray-light text-2xl font-medium">0{idx + 1}</p>
                 <p className="text-white text-2xl ">{step}</p>
+                {/* Conditional text rendering based on which step this is */}
                 <p className="text-gray-light font-light text-xl">
                   {step === 'Plan' && 'Outlining the goals and strategy for your project.'}
                   {step === 'Develop' && 'Develop your project using modern tools and technologies'}
@@ -62,7 +89,9 @@ export default function Home() {
       </>
   );
 
-  // Static array of project items to render in the UI
+  // Project data array - static data that could be replaced with API calls in production
+  // Defining project data separately from rendering logic improves maintainability
+  // Using a consistent object structure for each project item
   const projectItems = [
     // Sample project objects; you can replace or fetch these dynamically
     {
@@ -120,10 +149,15 @@ export default function Home() {
     },
   ];
 
-  // Function to display projects dynamically based on state
+  // Function to render projects with show more/less functionality
+  // Using a function to encapsulate complex rendering logic
+  // This approach keeps the main return statement clean and readable
   const renderProjects = () => (
       <>
+        {/* Grid layout for projects - responsive design with 1 column on mobile, 2 on larger screens */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Slice the array to show only the number of projects defined by visibleProjects state */}
+          {/* This implements the progressive disclosure pattern - showing limited content initially */}
           {projectItems.slice(0, visibleProjects).map((item, i) => (
               <Card key={i} className="bg-[#2a2a2a] border border-gray-700">
                 <CardContent className="gap-3 flex flex-col">
@@ -131,6 +165,7 @@ export default function Home() {
                   <img src={item.image} alt={item.title} className="rounded-md w-full h-40 object-cover" />
                   <p className="text-white text-2xl font-semibold mb-3">{item.title}</p>
                   <p className="text-white text-base ">{item.description}</p>
+                  {/* Mapping through tech array for each project */}
                   <div className="flex gap-1 mt-3 items-center flex-col sm:flex-row">
                     {item.tech.map((tech, j) => (
                         <p key={j} className="rounded-md bg-gray-medium text-white px-3 py-1 sm:w-auto text-xs font-medium">{tech}</p>
@@ -151,39 +186,46 @@ export default function Home() {
               </Card>
           ))}
         </div>
-        {/* Show More Button - visible only when there are more projects */}
-        {visibleProjects < projectItems.length && (
+        {/* Conditional rendering - Show More/Less button only appears if there are more than 4 projects */}
+        {projectItems.length > 4 && (
             <div className="flex justify-center mt-4">
               <button
                   onClick={showMoreProjects}
                   className="px-4 py-2 bg-[#2AC6A4] text-white rounded-sm text-sm font-medium"
               >
-                Show More
+                {/* Dynamic button text based on current state */}
+                {allVisible ? "Show Less" : "Show More"}
               </button>
             </div>
         )}
       </>
   );
 
-  // Component UI begins
+  // Component UI begins - the main return statement
+  // The structure follows a logical hierarchy: container > header > main content
   return (
       <div className="grid min-h-screen gap-4 overflow-auto sm:p-20 bg-[#000] font-[family-name:var(--font-poppins)] relative flex-col justify-center">
-        {/* Reusable header component receives navLinks */}
+        {/* Reusable header component receives navLinks through props */}
+        {/* This demonstrates component composition and reusability */}
         <Header links={navLinks} />
         <main className="flex flex-col sm:items-start sm:mt-18 gap-8">
           {/* Step-by-step horizontal nav section */}
+          {/* Using flex layout for horizontal arrangement with wrapping enabled */}
           <section className="flex gap-[18px] flex-wrap item-start text-white">
+            {/* Map through steps array to generate nav items - avoiding repetitive code */}
             {['Plan', 'Develop', 'Launch'].map((step, i) => (
                 <a
                     key={i}
                     className={`flex items-center gap-2 font-semibold text-2xl ${step === 'Launch' ? 'text-mint' : ''}`}
                 >
+                  {/* Conditional rendering - show arrow except after the last step */}
                   {step}{step !== 'Launch' ? ' →' : ''}
                 </a>
             ))}
           </section>
 
-          {/* Render multiple dynamic cards based on index */}
+          {/* Map through dynamicCardData to render multiple dynamic cards */}
+          {/* This demonstrates the power of data-driven UI generation */}
           {dynamicCardData.map((card, index) => (
               <DynamicCard
                   key={index}
@@ -194,7 +236,8 @@ export default function Home() {
                   buttonLink={card.buttonLink}
                   titleClassName={card.titleClassName}
               >
-                {/* Render flow or project content in specific index */}
+                {/* Conditional rendering based on card index */}
+                {/* This is utilizing the children prop to insert different content in specific cards */}
                 {index === 1 && renderFlowCards()}
                 {index === 2 && renderProjects()}
               </DynamicCard>
