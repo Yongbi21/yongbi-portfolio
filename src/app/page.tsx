@@ -73,7 +73,8 @@ export default function Home() {
       <>
         {/* Map through each step to create a card - avoiding repetitive code */}
         {['Plan', 'Develop', 'Launch'].map((step, idx) => (
-            <Card key={step} className="bg-[#1a1a1a] border border-gray-700 h-50">
+            <article key={step} className="">
+            <Card className="bg-[#1a1a1a] border border-gray-700 h-50">
               <CardContent className="gap-5 py-2 flex flex-col">
                 <p className="text-gray-light text-2xl font-medium">0{idx + 1}</p>
                 <p className="text-white text-2xl ">{step}</p>
@@ -85,6 +86,7 @@ export default function Home() {
                 </p>
               </CardContent>
             </Card>
+            </article>
         ))}
       </>
   );
@@ -99,7 +101,7 @@ export default function Home() {
       title: "WMSU Collection System",
       description: "A school fee management system that automates collecting fees and generating fee receipts.\n" +
           "It ensures correctness, eliminates duplicate and minimizes errors when entering entries into student accounts.",
-      tech: ["Kotlin", "Firebase", "PHP"],
+      tech: ["Laravel", "MySQL", "Flowbite CSS"],
       link: "https://github.com/Yongbi21/Pathfide",
       image: "/pathfide.png",
     },
@@ -116,9 +118,9 @@ export default function Home() {
     {
       label: "Freelance Project",
       title: "Mindpath Web",
-      description: "A web app that enables users to book therapy sessions and lets admins manage appointments, therapists,\n" +
-          "and interviews—all in one streamlined platform using the mindpath mobile version.",
-      tech: ["Kotlin", "Firebase", "PHP"],
+      description: "A web app that enables users to book therapy sessions and lets admins manage appointments, " +
+          "therapists, and interviews all in one streamlined platform.This serves primarily as the entry point for account creation and user onboarding of the therapist.",
+      tech: ["React", "Firebase", "PHP", "Tailwind CSS"],
       link: "https://github.com/Yongbi21/Pathfide",
       image: "/pathfide.png",
     },
@@ -127,7 +129,7 @@ export default function Home() {
       title: "ViaJe",
       description: "ViaJe is a Zamboanga City ride-hailing app (frontend only) that connects passengers with drivers. " +
           "Passengers can book and track rides with fare estimates, while drivers view earnings and trip stats. The UI includes ride history, payments, and support features for streamlined local transport.",
-      tech: ["Kotlin", "Firebase", "PHP"],
+      tech: ["Kotlin", "XML"],
       link: "https://github.com/Yongbi21/Pathfide",
       image: "/pathfide.png",
     },
@@ -135,7 +137,7 @@ export default function Home() {
       label: "Freelance Project",
       title: "ViaJe",
       description: "An app that supports your mental wellness journey...",
-      tech: ["Kotlin"],
+      tech: ["Kotlin", ],
       link: "https://github.com/Yongbi21/Pathfide",
       image: "/pathfide.png",
     },
@@ -143,7 +145,7 @@ export default function Home() {
       label: "Freelance Project",
       title: "ViaJe",
       description: "An app that supports your mental wellness journey...",
-      tech: ["Kotlin", "Firebase", "PHP"],
+      tech: ["Kotlin", "Firebase"],
       link: "https://github.com/Yongbi21/Pathfide",
       image: "/pathfide.png",
     },
@@ -159,7 +161,8 @@ export default function Home() {
           {/* Slice the array to show only the number of projects defined by visibleProjects state */}
           {/* This implements the progressive disclosure pattern - showing limited content initially */}
           {projectItems.slice(0, visibleProjects).map((item, i) => (
-              <Card key={i} className="bg-[#2a2a2a] border border-gray-700">
+              <article key={i} className="">
+              <Card className="bg-[#2a2a2a] border border-gray-700">
                 <CardContent className="gap-3 flex flex-col">
                   <p className="text-gray-light text-sm ">{item.label}</p>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -186,6 +189,7 @@ export default function Home() {
                   </div>
                 </CardContent>
               </Card>
+              </article>
           ))}
         </div>
         {/* Conditional rendering - Show More/Less button only appears if there are more than 4 projects */}
