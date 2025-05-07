@@ -14,20 +14,31 @@ const poppins = Poppins({
 
 // FOR SEO
 export const metadata: Metadata = {
-    title: "Yongbi – Frontend Developer Portfolio",
-    description: "Explore the portfolio of Yongbi, a frontend developer specializing in React, Next.js, " +
-        "and modern UI libraries like shadcn/ui, Magic UI, and Framer Motion. Discover interactive, fast, and accessible web projects.",
+    title: "Yongbi – Frontend Developer | Next.js, React, UI/UX Portfolio",
+    description:
+        "Discover the work of Yongbi, a frontend developer crafting modern, responsive, and accessible web experiences using Next.js, React, Tailwind CSS, shadcn/ui, Magic UI, and Framer Motion.",
     keywords: [
         "frontend developer",
+        "web developer",
         "Next.js developer",
-        "React portfolio",
-        "web developer portfolio",
+        "React developer",
+        "JavaScript portfolio",
+        "TypeScript developer",
         "UI/UX developer",
-        "JavaScript developer",
+        "tailwind developer",
         "responsive web design",
         "accessible websites",
+        "shadcn/ui",
+        "Magic UI",
+        "Framer Motion",
+        "modern web development",
+        "portfolio website",
+        "creative developer",
         "interactive websites",
-        "modern web development"
+        "developer portfolio",
+        "software engineer portfolio",
+        "personal website frontend",
+        "frontend design showcase"
     ],
 };
 
