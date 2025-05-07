@@ -8,6 +8,7 @@
 import { Header } from "@/app/header"; // Custom Header component for site navigation
 import DynamicCard from "@/components/ui/dynamic-card"; // Reusable component for displaying cards with dynamic content
 import { Card, CardContent } from "@/components/ui/card"; // UI components for consistent card styling
+import EducationCard from "@/components/ui/education-card"; // Custom component for displaying education-related content
 import React, { useState } from "react"; // Import React and useState hook for managing component state
 
 // Home is the main page component for this route
@@ -44,7 +45,33 @@ export default function Home() {
       title: "Projects",
       titleClassName: "flex justify-center items-center font-semibold text-2xl mb-4",
     },
+    {
+      title: "About Me",
+      titleClassName: "flex justify-center items-center font-semibold text-2xl mb-4",
+      extraText: "I’m a front-end developer passionate about building solutions that simplify life. " +
+          "I’m always seeking new challenges and opportunities to grow, continually learning and coming up with creative ways to tackle problems",
+    },
+
+
   ];
+
+  // Education card data - currently defined but not used in the component
+  // Will be used for future education section implementation
+  const educationCardData = [
+
+    {
+      title: "Education",
+      titleClassName: "flex justify-center items-center font-semibold text-2xl mb-4",
+      image: "/wmsu-logo.png",
+      schoolName: "Western Mindanao State University",
+      description: "Bachelor of Science in Information Technology",
+      daterange: "2020 - 2024",
+    },
+
+
+
+  ];
+
 
   // State management for project visibility
   // Using React's useState hook to create component-level state variables
@@ -250,6 +277,21 @@ export default function Home() {
                 {index === 1 && renderFlowCards()}
                 {index === 2 && renderProjects()}
               </DynamicCard>
+          ))}
+
+          {educationCardData.map((card, index) => (
+              <EducationCard
+                  key={index}
+                  title={card.title}
+                  titleClassName={card.titleClassName}
+                  image={card.image}
+                  schoolName={card.schoolName}
+                  description={card.description}
+                  dateRange={card.daterange}
+
+
+              >
+              </EducationCard>
           ))}
         </main>
       </div>

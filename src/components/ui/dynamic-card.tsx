@@ -58,14 +58,22 @@ const DynamicCard: React.FC<DynamicCardProps> = ({
 
 
                 {description && (
-                    <p className={`text-2xl text-white font-light ${descriptionClassName}`}>
+                    <p className={`text-lg text-white font-light ${descriptionClassName}`}>
                         {description}
                     </p>
                 )}
 
                 {extraText && (
-                    <p className={`text-md text-white font-light max-w-xl ${extraTextClassName}`}>
-                        {extraText}
+                    <p className={`text-lg text-white font-light max-w-3xl ${extraTextClassName}`}>
+
+                        <>
+                            {extraText.split("Currently based in Zamboanga City, Philippines")[0]}
+                            <br />
+                            <br />
+                            <span className="font-semibold ">Currently based in Zamboanga City, Philippines</span>
+                            <br />
+                            {extraText.split("Currently based in Zamboanga City, Philippines")[1]}
+                        </>
                     </p>
                 )}
 
