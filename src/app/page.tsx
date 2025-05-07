@@ -61,7 +61,7 @@ export default function Home() {
 
     {
       title: "Education",
-      titleClassName: "flex justify-center items-center font-semibold text-2xl mb-4",
+      titleClassName: "flex justify-center items-center font-semibold text-2xl",
       image: "/wmsu-logo.png",
       schoolName: "Western Mindanao State University",
       description: "Bachelor of Science in Information Technology",
@@ -288,8 +288,6 @@ export default function Home() {
                   schoolName={card.schoolName}
                   description={card.description}
                   dateRange={card.daterange}
-
-
               >
               </EducationCard>
           ))}

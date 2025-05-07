@@ -25,12 +25,12 @@ const EducationCard: React.FC<EducationCardProps> = ({
                                                      }) => {
     return (
         <Card className="bg-[#1a1a1a] text-white border-none w-full rounded-xl">
-            <CardContent className="flex flex-col ">`
+            <CardContent className="flex flex-col ">
 
-                <h1 className={`text-2xl font-light text-white ${titleClassName}`}>
+                <h1 className={`text-2xl font-light mb-4 text-white ${titleClassName}`}>
                     {title}
                 </h1>
-            <div className="flex flex-row items-center justify-between p-6">
+            <div className="flex flex-row items-center justify-between p-4">
                 {/* Logo */}
                 <div className="flex-shrink-0">
                     <Image
@@ -46,12 +46,12 @@ const EducationCard: React.FC<EducationCardProps> = ({
                 <div className="flex flex-col ml-6 flex-grow">
                     <h2 className="text-lg font-bold text-white">{schoolName}</h2>
                     {description && (
-                        <p className="text-sm text-gray-300 mt-1">{description}</p>
+                        <p className="text-md text-gray-300 mt-1">{description}</p>
                     )}
                 </div>
 
                 {/* Date */}
-                <div className="text-sm text-gray-400 text-right whitespace-nowrap ml-4">
+                <div className="text-md text-white text-right whitespace-nowrap ml-4">
                     {dateRange}
                 </div>
             </div>
