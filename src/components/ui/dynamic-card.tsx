@@ -70,12 +70,12 @@ const DynamicCard: React.FC<DynamicCardProps> = ({
                 )}
 
                 {children}
-
                 {buttonLabel && buttonLink && (
                     <div className="flex gap-4 items-center flex-col sm:flex-row mt-3">
                         <a
-                            className={`rounded-md border border-transparent transition-colors flex items-center justify-center
-        bg-[#2AC6A4] text-white gap-2 font-medium text-md sm:text-base h-10 sm:h-11 px-4 sm:px-5 sm:w-auto ${buttonClassName}`}
+                            className={`rounded-md border border-transparent  flex items-center justify-center
+        bg-[#2AC6A4] text-white gap-2 font-medium text-md sm:text-base h-10 sm:h-11 px-4 sm:px-5 sm:w-auto transform transition hover:-translate-y-1 motion-reduce:transition-none
+         motion-reduce:hover:transform-none hover:shadow-[0_0_10px_#25b197] ${buttonClassName}`}
                             href={buttonLink}
                             target="_blank"
                             rel="noopener noreferrer"

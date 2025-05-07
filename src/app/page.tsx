@@ -177,7 +177,8 @@ export default function Home() {
                   </div>
                   <div className="flex gap-4 items-center flex-col sm:flex-row mt-3">
                     <a
-                        className="rounded-md border border-transparent transition-colors flex items-center justify-center bg-[#2AC6A4] text-white gap-2 font-medium text-base sm:text-base h-10 sm:h-10 px-4 sm:px-5 sm:w-auto"
+                        className="rounded-md border border-transparent flex items-center justify-center bg-[#2AC6A4] transform transition hover:-translate-y-1 motion-reduce:transition-none
+         motion-reduce:hover:transform-none hover:shadow-[0_0_10px_#25b197] text-white gap-2 font-medium text-base sm:text-base h-10 sm:h-10 px-4 sm:px-5 sm:w-auto"
                         href={item.link}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -197,8 +198,10 @@ export default function Home() {
             <div className="flex justify-center mt-4">
               <button
                   onClick={showMoreProjects}
-                  className="px-4 py-2 bg-[#2AC6A4] text-white rounded-sm text-sm font-medium"
+                  className="px-4 py-2 bg-[#2AC6A4] text-white rounded-sm text-sm font-medium transition hover:scale-110 hover:shadow-[0_0_10px_#25b197] cursor-pointer"
+
               >
+
                 {/* Dynamic button text based on current state */}
                 {allVisible ? "Show Less" : "Show More"}
               </button>
