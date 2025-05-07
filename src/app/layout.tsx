@@ -14,10 +14,23 @@ const poppins = Poppins({
 
 // FOR SEO
 export const metadata: Metadata = {
-  title: "Yongbi",
-  description: "A simple portfolio website",
-  keywords: ["portfolio", "developer", "web developer", "frontend developer"],
+    title: "Yongbi – Frontend Developer Portfolio",
+    description: "Explore the portfolio of Yongbi, a frontend developer specializing in React, Next.js, " +
+        "and modern UI libraries like shadcn/ui, Magic UI, and Framer Motion. Discover interactive, fast, and accessible web projects.",
+    keywords: [
+        "frontend developer",
+        "Next.js developer",
+        "React portfolio",
+        "web developer portfolio",
+        "UI/UX developer",
+        "JavaScript developer",
+        "responsive web design",
+        "accessible websites",
+        "interactive websites",
+        "modern web development"
+    ],
 };
+
 
 
 export default function RootLayout({

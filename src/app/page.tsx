@@ -162,6 +162,7 @@ export default function Home() {
               <Card key={i} className="bg-[#2a2a2a] border border-gray-700">
                 <CardContent className="gap-3 flex flex-col">
                   <p className="text-gray-light text-sm ">{item.label}</p>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={item.image} alt={item.title} className="rounded-md w-full h-40 object-cover" />
                   <p className="text-white text-2xl font-semibold mb-3">{item.title}</p>
                   <p className="text-white text-base ">{item.description}</p>
@@ -178,6 +179,7 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src="/github-logo-dark.png" alt="GitHub" className="h-5 w-5" />
                       Github
                     </a>
