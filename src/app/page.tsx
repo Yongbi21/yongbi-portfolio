@@ -23,7 +23,7 @@ export default function Home() {
     { label: "About", href: "/about", image: "", alt: "About" },
     { label: "Contact", href: "/contact", image: "", alt: "Contact" },
     { label: "", href: "https://github.com/Yongbi21", image: "/github-logo-dark.png", alt: "Github" },
-    { label: "", href: "", image: "/dark-mode.png", alt: "dark-mode" },
+    { label: "", href: "", image: "/dark-mode.png", alt: "Dark Mode" },
   ];
 
   // Data for the DynamicCard components - separating content from structure
@@ -49,7 +49,9 @@ export default function Home() {
       title: "About Me",
       titleClassName: "flex justify-center items-center font-semibold text-2xl mb-4",
       extraText: "I’m a front-end developer passionate about building solutions that simplify life. " +
-          "I’m always seeking new challenges and opportunities to grow, continually learning and coming up with creative ways to tackle problems",
+          "I’m always seeking new challenges and opportunities to grow, continually learning and coming up with creative ways to tackle problems.",
+      locationText: "Currently based in Zamboanga City, Philippines",
+
     },
 
 
@@ -271,6 +273,7 @@ export default function Home() {
                   buttonLabel={card.buttonLabel}
                   buttonLink={card.buttonLink}
                   titleClassName={card.titleClassName}
+                  locationText={card.locationText}
               >
                 {/* Conditional rendering based on card index */}
                 {/* This is utilizing the children prop to insert different content in specific cards */}

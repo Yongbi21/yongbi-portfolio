@@ -14,6 +14,7 @@ interface DynamicCardProps {
     title: string;
     description?: string;
     extraText?: string;
+    locationText?: string;
     buttonLabel?: string;
     buttonLink?: string;
     titleClassName?: string;
@@ -27,6 +28,7 @@ const DynamicCard: React.FC<DynamicCardProps> = ({
     title,
     description,
     extraText,
+    locationText,
     buttonLabel,
     buttonLink,
     titleClassName,
@@ -65,18 +67,13 @@ const DynamicCard: React.FC<DynamicCardProps> = ({
 
                 {extraText && (
                     <p className={`text-lg text-white font-light max-w-3xl ${extraTextClassName}`}>
-                        {extraText.includes("Alvin John Romblon") ? (
-                            <>
-                            {extraText.split("Currently based in Zamboanga City, Philippines")[0]}
-                            <br />
-                            <br />
-                            <span className="font-semibold ">Currently based in Zamboanga City, Philippines</span>
-                            <br />
-                            {extraText.split("Currently based in Zamboanga City, Philippines")[1]}
-                        </>
-                        ) : (
-                            extraText
-                        )}
+                        {extraText}
+                    </p>
+                )}
+
+                {locationText && (
+                    <p className={`text-lg text-white font-semibold max-w-3xl`}>
+                        {locationText}
                     </p>
                 )}
 

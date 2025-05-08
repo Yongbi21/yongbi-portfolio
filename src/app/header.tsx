@@ -3,6 +3,12 @@ import Link from 'next/link';
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import Image from 'next/image'
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 
 
@@ -27,34 +33,54 @@ export function Header({ links }: HeaderProps) {
          ring-1 ring-border lg:top-9 border-none">
             <CardContent>
                 <nav className=" text-white flex item-center">
-                    <ul className="flex gap-4">
-                        {links.map((link, index) => (
-                            <React.Fragment key={index}>
-                            <li>
-                                <Link
-                                    href={link.href}
-                                    className="hover:text-[#2AC6A4] transition-colors"
-                                >
-                                    {link.image ? (
-                                        <Image className="min-w-[21px] min-h-[21px] w-5 h-5 object-contain"
-                                            src={link.image}
-                                            alt={link.alt || "icon"}
-                                            width={512}
-                                            height={512}
-                                        />
-                                    ) : (
-                                        link.label
-                                    )}
-                                </Link>
-                            </li>
-                                {index === links.length - 3 && (
-                                    <Separator orientation="vertical" className="bg-white" />
-                                )}
+                    <TooltipProvider>
+                        <ul className="flex gap-4">
+                            {links.map((link, index) => {
+                                const isIconOnly = !link.label && link.image;
 
-                            </React.Fragment>
+                                return (
+                                    <React.Fragment key={index}>
+                                        <li>
+                                            {isIconOnly ? (
+                                                <Tooltip>
+                                                    <TooltipTrigger asChild>
+                                                        <Link
+                                                            href={link.href}
+                                                            className="hover:text-[#2AC6A4] transition-colors"
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                        >
+                                                            <Image
+                                                                className="min-w-[21px] min-h-[21px] w-5 h-5 object-contain"
+                                                                src={link.image}
+                                                                alt={link.alt || "icon"}
+                                                                width={512}
+                                                                height={512}
+                                                            />
+                                                        </Link>
+                                                    </TooltipTrigger>
+                                                    <TooltipContent side="top">
+                                                        <p>{link.alt || "Link"}</p>
+                                                    </TooltipContent>
+                                                </Tooltip>
+                                            ) : (
+                                                <Link
+                                                    href={link.href}
+                                                    className="hover:text-[#2AC6A4] transition-colors"
+                                                >
+                                                    {link.label}
+                                                </Link>
+                                            )}
+                                        </li>
 
-                        ))}
-                    </ul>
+                                        {index === links.length - 3 && (
+                                            <Separator orientation="vertical" className="bg-white" />
+                                        )}
+                                    </React.Fragment>
+                                );
+                            })}
+                        </ul>
+                    </TooltipProvider>
                 </nav>
             </CardContent>
         </Card>
