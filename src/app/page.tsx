@@ -292,6 +292,10 @@ export default function Home() {
               </EducationCard>
           ))}
         </main>
+      <footer>
+
+
+      </footer>
       </div>
   );
 }
