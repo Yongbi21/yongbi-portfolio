@@ -10,6 +10,9 @@ import DynamicCard from "@/components/ui/dynamic-card"; // Reusable component fo
 import { Card, CardContent } from "@/components/ui/card"; // UI components for consistent card styling
 import EducationCard from "@/components/ui/education-card"; // Custom component for displaying education-related content
 import React, { useState } from "react"; // Import React and useState hook for managing component state
+import { ScrollArea } from "@/components/ui/scroll-area"
+
+
 
 // Home is the main page component for this route
 // Using a functional component pattern which is the modern approach in React
@@ -242,7 +245,7 @@ export default function Home() {
   // Component UI begins - the main return statement
   // The structure follows a logical hierarchy: container > header > main content
   return (
-      <div className="grid min-h-screen gap-4 overflow-auto sm:p-20 bg-[#000] font-[family-name:var(--font-poppins)] relative flex-col justify-center">
+      <ScrollArea className="grid min-h-screen gap-4 overflow-auto sm:p-20 bg-[#000] font-[family-name:var(--font-poppins)] relative flex-col justify-center">
         {/* Reusable header component receives navLinks through props */}
         {/* This demonstrates component composition and reusability */}
         <Header links={navLinks} />
@@ -299,6 +302,6 @@ export default function Home() {
 
 
       </footer>
-      </div>
+      </ScrollArea>
   );
 }

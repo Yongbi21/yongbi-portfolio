@@ -84,6 +84,7 @@
   --color-mint: #00fdc3;
   --color-gray-light: #A3A3A3;
   --color-gray-medium: #0a0a0a;
+
 }
 
 .dark {
@@ -129,6 +130,18 @@
   body {
     @apply bg-background text-foreground;
 
+  }
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: black;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
   }
 
 }
