@@ -1,25 +1,15 @@
-"use client"; // This directive marks the file as client-side code, enabling React hooks and browser APIs
+"use client";
 
-// Import Section:
-// - Layout components first (Header)
-// - UI components second (DynamicCard, Card)
-// - React core functionality last
-// The @/ notation is a path alias in Next.js pointing to the project root for cleaner imports
-import { Header } from "@/app/header"; // Custom Header component for site navigation
-import DynamicCard from "@/components/ui/dynamic-card"; // Reusable component for displaying cards with dynamic content
-import { Card, CardContent } from "@/components/ui/card"; // UI components for consistent card styling
-import EducationCard from "@/components/ui/education-card"; // Custom component for displaying education-related content
-import React, { useState } from "react"; // Import React and useState hook for managing component state
+import { Header } from "@/app/header";
+import DynamicCard from "@/components/ui/dynamic-card";
+import { Card, CardContent } from "@/components/ui/card";
+import EducationCard from "@/components/ui/education-card";
+import React, { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area"
 
 
 
-// Home is the main page component for this route
-// Using a functional component pattern which is the modern approach in React
 export default function Home() {
-  // Navigation links array - Organizing navigation data at the top of the component
-  // Using an array of objects provides a consistent data structure and makes it easy to map through
-  // This approach separates data from presentation logic
   const navLinks = [
     { label: "Home", href: "/", image: "", alt: "Home" },
     { label: "Projects", href: "/", image: "", alt: "Projects" },
@@ -29,9 +19,6 @@ export default function Home() {
     { label: "", href: "", image: "/dark-mode.png", alt: "Dark Mode" },
   ];
 
-  // Data for the DynamicCard components - separating content from structure
-  // This approach makes the component more maintainable - content changes don't require modifying component logic
-  // Each object has a consistent structure for predictable rendering
   const dynamicCardData = [
     {
       title: "Hello there! I'm Alvin John Romblon",
@@ -60,8 +47,6 @@ export default function Home() {
 
   ];
 
-  // Education card data - currently defined but not used in the component
-  // Will be used for future education section implementation
   const educationCardData = [
 
     {
@@ -78,32 +63,21 @@ export default function Home() {
   ];
 
 
-  // State management for project visibility
-  // Using React's useState hook to create component-level state variables
-  // Initial state shows only 4 projects to avoid overwhelming users with content
-  const [visibleProjects, setVisibleProjects] = useState(4); // Controls how many projects are displayed
-  const [allVisible, setAllVisible] = useState(false); // Tracks whether all projects are currently shown
+  const [visibleProjects, setVisibleProjects] = useState(4);
+  const [allVisible, setAllVisible] = useState(false);
 
-  // Toggle function for showing more/fewer projects
-  // This function updates both state variables to maintain consistency
-  // Provides a smooth user experience by toggling between states
   const showMoreProjects = () => {
     if (allVisible) {
-      setVisibleProjects(4);       // Collapse back to initial number
+      setVisibleProjects(4);
       setAllVisible(false);
     } else {
-      setVisibleProjects(projectItems.length); // Show all
+      setVisibleProjects(projectItems.length);
       setAllVisible(true);
     }
   };
 
-  // Function to render flow cards
-  // Encapsulating rendering logic in a function makes the JSX cleaner and more maintainable
-  // Using array mapping to generate multiple similar components from data
-  // Conditional rendering inside the mapped function customizes content based on the step
   const renderFlowCards = () => (
       <>
-        {/* Map through each step to create a card - avoiding repetitive code */}
         {['Plan', 'Develop', 'Launch'].map((step, idx) => (
             <article key={step} className="">
             <Card className="bg-[#1a1a1a] border border-gray-700 h-50">
@@ -123,11 +97,8 @@ export default function Home() {
       </>
   );
 
-  // Project data array - static data that could be replaced with API calls in production
-  // Defining project data separately from rendering logic improves maintainability
-  // Using a consistent object structure for each project item
+
   const projectItems = [
-    // Sample project objects; you can replace or fetch these dynamically
     {
       label: "School Project",
       title: "WMSU Collection System",
@@ -146,7 +117,7 @@ export default function Home() {
       link: "https://github.com/Yongbi21/Pathfide",
       image: "/pathfide.png",
     },
-    // Repeated items for demo purposes
+
     {
       label: "Freelance Project",
       title: "Mindpath Web",
@@ -183,15 +154,9 @@ export default function Home() {
     },
   ];
 
-  // Function to render projects with show more/less functionality
-  // Using a function to encapsulate complex rendering logic
-  // This approach keeps the main return statement clean and readable
   const renderProjects = () => (
       <>
-        {/* Grid layout for projects - responsive design with 1 column on mobile, 2 on larger screens */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {/* Slice the array to show only the number of projects defined by visibleProjects state */}
-          {/* This implements the progressive disclosure pattern - showing limited content initially */}
           {projectItems.slice(0, visibleProjects).map((item, i) => (
               <article key={i} className="">
               <Card className="bg-[#2a2a2a] border border-gray-700">
@@ -215,7 +180,6 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src="/github-logo-dark.png" alt="GitHub" className="h-5 w-5" />
                       Github
                     </a>
@@ -225,7 +189,6 @@ export default function Home() {
               </article>
           ))}
         </div>
-        {/* Conditional rendering - Show More/Less button only appears if there are more than 4 projects */}
         {projectItems.length > 4 && (
             <div className="flex justify-center mt-4">
               <button
@@ -234,7 +197,6 @@ export default function Home() {
 
               >
 
-                {/* Dynamic button text based on current state */}
                 {allVisible ? "Show Less" : "Show More"}
               </button>
             </div>
@@ -242,31 +204,21 @@ export default function Home() {
       </>
   );
 
-  // Component UI begins - the main return statement
-  // The structure follows a logical hierarchy: container > header > main content
   return (
       <ScrollArea className="grid min-h-screen gap-4 overflow-auto sm:p-20 bg-[#000] font-[family-name:var(--font-poppins)] relative flex-col justify-center">
-        {/* Reusable header component receives navLinks through props */}
-        {/* This demonstrates component composition and reusability */}
         <Header links={navLinks} />
         <main className="flex flex-col sm:items-start sm:mt-18 gap-8">
-          {/* Step-by-step horizontal nav section */}
-          {/* Using flex layout for horizontal arrangement with wrapping enabled */}
           <section className="flex gap-[18px] flex-wrap item-start text-white">
-            {/* Map through steps array to generate nav items - avoiding repetitive code */}
             {['Plan', 'Develop', 'Launch'].map((step, i) => (
                 <a
                     key={i}
                     className={`flex items-center gap-2 font-semibold text-2xl ${step === 'Launch' ? 'text-mint' : ''}`}
                 >
-                  {/* Conditional rendering - show arrow except after the last step */}
                   {step}{step !== 'Launch' ? ' →' : ''}
                 </a>
             ))}
           </section>
 
-          {/* Map through dynamicCardData to render multiple dynamic cards */}
-          {/* This demonstrates the power of data-driven UI generation */}
           {dynamicCardData.map((card, index) => (
               <DynamicCard
                   key={index}
@@ -278,8 +230,6 @@ export default function Home() {
                   titleClassName={card.titleClassName}
                   locationText={card.locationText}
               >
-                {/* Conditional rendering based on card index */}
-                {/* This is utilizing the children prop to insert different content in specific cards */}
                 {index === 1 && renderFlowCards()}
                 {index === 2 && renderProjects()}
               </DynamicCard>
