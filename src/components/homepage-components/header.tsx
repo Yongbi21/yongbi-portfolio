@@ -46,7 +46,7 @@ export function Header({ links }: HeaderProps) {
                                                     <TooltipTrigger asChild>
                                                         <Link
                                                             href={link.href}
-                                                            className="hover:text-[#2AC6A4] transition-colors"
+                                                            className="hover:text-[#00FDC3] font-semibold transition-colors"
                                                             target="_blank"
                                                             rel="noopener noreferrer"
                                                         >
@@ -66,7 +66,7 @@ export function Header({ links }: HeaderProps) {
                                             ) : (
                                                 <Link
                                                     href={link.href}
-                                                    className="hover:text-[#2AC6A4] transition-colors"
+                                                    className="hover:text-[#2AC6A4] font-semibold transition-colors"
                                                 >
                                                     {link.label}
                                                 </Link>
